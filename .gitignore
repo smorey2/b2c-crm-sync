@@ -4,6 +4,8 @@
 /.sfdx/
 /IlluminatedCloud/
 /_demos/
+/_envs/
+.sf/
 
 # Plugin-specific files
 out/

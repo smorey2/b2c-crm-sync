@@ -206,20 +206,17 @@ module.exports = commandProgram => {
                 resultObj = await cliAPI.sfUserPermsetAssign(environmentDef, config.get('sfScratchOrg.jwtPermSetName'));
                 console.log(' -- assigned the B2C-CRM-Jwt permissionSet to the active user');
 
-                // removed userDetails - requires RequiresDevhubUsername which is not always present
-                if (false) {
-                    // Display the user details
-                    resultObj = await cliAPI.sfUserDetails(environmentDef);
-                    console.log(' -- Current active user details for this Salesforce Org');
-                    cliUi.outputResults(resultObj.outputDisplay, undefined, 'cliTableConfig.scratchOrgDetails');
-                    cliUi.outputSFUserDetails(resultObj);
+                // Display the user details
+                resultObj = await cliAPI.sfUserDetails(environmentDef);
+                console.log(' -- Current active user details for this Salesforce Org');
+                cliUi.outputResults(resultObj.outputDisplay, undefined, 'cliTableConfig.scratchOrgDetails');
+                cliUi.outputSFUserDetails(resultObj);
 
-                    // Output the scratchOrg details
-                    cliUi.outputResults(
-                        resultObj.outputDisplay,
-                        undefined,
-                        'cliTableConfig.scratchOrgResults');
-                }
+                // Output the scratchOrg details
+                cliUi.outputResults(
+                    resultObj.outputDisplay,
+                    undefined,
+                    'cliTableConfig.scratchOrgResults');
 
                 // Output the success message
                 cliUi.outputResults();

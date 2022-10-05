@@ -36,7 +36,7 @@ describe('Validation of the B2CCodeVersion', function () {
     });
 
     it('fails if an invalid B2CCodeVersion is provided', function () {
-        ['000code_version_v000', 'code000-version-v100', 'code000 version v100', 'code000_version@v100'].forEach(testValue => {
+        ['000code_version_v000', 'code000^version-v100', 'code000 version v100', 'code000_version@v100'].forEach(testValue => {
             // Exercise the validation function
             const output = validateB2CCodeVersion(testValue);
             // Validate that the returned validation result aligns with the expected result
